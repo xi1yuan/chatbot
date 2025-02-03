@@ -12,6 +12,13 @@
     (window,document,'script','https://livechat.infobip.com/widget.js','liveChat');
 
     liveChat('init', '9d5d3044-37ab-4946-aebd-a21ae30589ee');
+
+    // 페이지 로드 후 2초 뒤에 자동으로 채팅 창 열기
+    window.onload = function() {
+        setTimeout(function() {
+            liveChat('open');
+        }, 1000); // 1초 뒤에 채팅 창을 자동으로 열림
+    };
     </script>
 </head>
 <body>
@@ -20,3 +27,4 @@
     <p>Feel free to chat with us via the live chat widget!</p>
 </body>
 </html>
+
