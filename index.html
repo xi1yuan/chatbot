@@ -8,16 +8,22 @@
     (function(I,n,f,o,b,i,p){
         I[b]=I[b]||function(){(I[b].q=I[b].q||[]).push(arguments)};
         I[b].t=1*new Date();i=n.createElement(f);i.async=1;i.src=o;
-        p=n.getElementsByTagName(f)[0];p.parentNode.insertBefore(i,p)})
-    (window,document,'script','https://livechat.infobip.com/widget.js','liveChat');
+        p=n.getElementsByTagName(f)[0];p.parentNode.insertBefore(i,p)})(window,document,'script','https://livechat.infobip.com/widget.js','liveChat');
 
     liveChat('init', '9d5d3044-37ab-4946-aebd-a21ae30589ee');
 
-    // DOM이 완전히 로드된 후에 채팅 창을 자동으로 열기
+    // 페이지 로드 후 3초 뒤에 자동으로 채팅 창을 열도록 설정
     document.addEventListener("DOMContentLoaded", function() {
         setTimeout(function() {
             liveChat('open');
-        }, 3000); // 3초 뒤에 채팅 창을 자동으로 열림
+        }, 1000); // 3초 뒤에 채팅 창을 열도록 설정
+    });
+
+    // 모바일에서 페이지 스크롤 후에 열리도록 상호작용 유도
+    window.addEventListener('scroll', function() {
+        setTimeout(function() {
+            liveChat('open');
+        }, 1000); // 스크롤 이후 3초 뒤에 자동으로 채팅 창을 열리게 함
     });
     </script>
 </head>
@@ -26,3 +32,4 @@
     <p>Feel free to chat with us via the live chat widget!</p>
 </body>
 </html>
+
