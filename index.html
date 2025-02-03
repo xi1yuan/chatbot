@@ -13,18 +13,16 @@
 
     liveChat('init', '9d5d3044-37ab-4946-aebd-a21ae30589ee');
 
-    // 페이지 로드 후 2초 뒤에 자동으로 채팅 창 열기
-    window.onload = function() {
+    // DOM이 완전히 로드된 후에 채팅 창을 자동으로 열기
+    document.addEventListener("DOMContentLoaded", function() {
         setTimeout(function() {
             liveChat('open');
-        }, 1000); // 1초 뒤에 채팅 창을 자동으로 열림
-    };
+        }, 3000); // 3초 뒤에 채팅 창을 자동으로 열림
+    });
     </script>
 </head>
 <body>
-    <!-- Your website content goes here -->
     <h1>Welcome to Our Website</h1>
     <p>Feel free to chat with us via the live chat widget!</p>
 </body>
 </html>
-
