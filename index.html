@@ -14,16 +14,19 @@
 
     // 페이지 로드 후 3초 뒤에 자동으로 채팅 창을 열도록 설정
     document.addEventListener("DOMContentLoaded", function() {
-        setTimeout(function() {
-            liveChat('open');
-        }, 1000); // 3초 뒤에 채팅 창을 열도록 설정
-    });
-
-    // 모바일에서 페이지 스크롤 후에 열리도록 상호작용 유도
-    window.addEventListener('scroll', function() {
-        setTimeout(function() {
-            liveChat('open');
-        }, 1000); // 스크롤 이후 3초 뒤에 자동으로 채팅 창을 열리게 함
+        // 모바일에서 상호작용 이후 열기
+        if (window.innerWidth <= 800) {
+            // 모바일 환경에서 사용자가 화면을 터치할 때 열기
+            window.addEventListener('touchstart', function() {
+                setTimeout(function() {
+                    liveChat('open');
+                }, 500); // 터치 후 0.5초 뒤에 열리도록 설정
+            });
+        } else {
+            setTimeout(function() {
+                liveChat('open');
+            }, 3000); // 데스크탑 환경에서는 3초 후 자동으로 열기
+        }
     });
     </script>
 </head>
